@@ -1,0 +1,10 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Allow read/write access to scenes collection for demo purposes
+    // WARNING: This is permissive for demo only - tighten for production
+    match /scenes/{sceneId} {
+      allow read, write: if true;
+    }
+  }
+}
